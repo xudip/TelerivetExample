@@ -1,0 +1,56 @@
+﻿﻿@model TelerivetExample.Models.Event
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <br />
+    <pre>
+        Hi!
+
+        The Telerivet Webhook is working. 
+        The followin are the commands accepted via SMS:
+
+            1. User Registration: RR[space]Name[space]Pincode
+            2. User Approve: RA[space]Name[space]Pincode
+            3. Project Creation : RC[space]ProjectCode[space]Amount[space]Pincode
+            4. Project Approve : AA[space]ProjectCode[space]Request_ID[space]Pincode
+            5. User Pincode Change : UPC[space]Name[space]Phone[space]Pincode
+            6. Project Pincode Change : PPC[space]ProjectCode[space]RequestID[space]Pincode
+
+        Thank You, 
+        Sudarshan Gora
+    </pre>
+
+    @*<div>
+        @using (
+             Html.BeginForm("MockSMSSend", "Home", new { ReturnUrl = "" }, FormMethod.Post, new { @style = "margin-top:-20px" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <hr />
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-sm-2 col-md-2" })
+                    <div class=" col-sm-6 col-md-6">
+                        @Html.EditorFor(model => model.Content, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="login" id="Submit" class="btn btn-default" onclick="location.href='@Url.Action("MockSMSSend", "Home")'" />
+                        <div class="form-group hidden">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="login" class="btn btn-default btn-success" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>*@
+</body>
+</html>

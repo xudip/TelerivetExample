@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Users";
+}
+
+<div class="row">
+    <h1>Users</h1>
+    <div class="col-xs-12">
+        <table id="user-table" class=" table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Status</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Pincode</th>
+                    <th>Created Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{ foreach (var user in ViewBag.Users)
+                    {
+
+                        <tr>
+                            <td><span class="badge">@(user.Status ? "Approved" : "Pending")</span></td>
+                            <td>@user.Name</td>
+                            <td>@user.Phone</td>
+                            <td>@user.Pin</td>
+                            <td>@user.CreatedDate</td>
+                        </tr>
+                    }}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#user-table').DataTable();
+    });
+</script>

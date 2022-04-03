@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Users";
+}
+
+<div class="row">
+    <h1>Projects</h1>
+    <div class="col-xs-12">
+        <table id="user-table" class=" table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Status</th>
+                    <th>Name</th>
+                    <th>Project Code</th>
+                    <th>Amount</th>
+                    <th>Pincode</th>
+                    <th>Created Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{ foreach (var proj in ViewBag.UserProjects)
+                    {
+
+                <tr>
+                    <td><span class="badge">@(proj.Status? "Approved" : "Pending")</span></td>
+                    <td>@proj.UserName</td>
+                    <td>@proj.ProjectCode</td>
+                    <td>@proj.Amount</td>
+                    <td>@proj.Pin</td>
+                    <td>@proj.CreatedDate</td>
+                </tr>
+                    }}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#user-table').DataTable();
+    });
+</script>
