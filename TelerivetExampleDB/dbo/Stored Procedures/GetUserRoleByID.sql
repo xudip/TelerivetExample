@@ -1,0 +1,9 @@
+﻿CREATE PROCEDURE GetUserRoleByID
+(
+	@UserID INT
+)
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT [Role] FROM [User] WHERE UserID = @UserID
+END
